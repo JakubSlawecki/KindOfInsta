@@ -13,6 +13,7 @@
 		231C920E205925F1004154FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231C920D205925F1004154FE /* Assets.xcassets */; };
 		231C9211205925F1004154FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231C920F205925F1004154FE /* LaunchScreen.storyboard */; };
 		231C92192059268C004154FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 231C92182059268C004154FE /* GoogleService-Info.plist */; };
+		231C921E205937FF004154FE /* lato-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231C921D205937FF004154FE /* lato-regular.ttf */; };
 		F57477A66309F78A9C610358 /* Pods_KindOfInsta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		231C9210205925F1004154FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231C9212205925F1004154FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231C92182059268C004154FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		231C921D205937FF004154FE /* lato-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regular.ttf"; sourceTree = "<group>"; };
 		3F6CE79D5C365602C596E4C1 /* Pods-KindOfInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.debug.xcconfig"; sourceTree = "<group>"; };
 		D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KindOfInsta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40297A0C07C01C5DABC64E5 /* Pods-KindOfInsta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.release.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				231C920F205925F1004154FE /* LaunchScreen.storyboard */,
 				231C9212205925F1004154FE /* Info.plist */,
 				231C92182059268C004154FE /* GoogleService-Info.plist */,
+				231C921D205937FF004154FE /* lato-regular.ttf */,
 			);
 			path = KindOfInsta;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				231C9211205925F1004154FE /* LaunchScreen.storyboard in Resources */,
 				231C92192059268C004154FE /* GoogleService-Info.plist in Resources */,
 				231C920E205925F1004154FE /* Assets.xcassets in Resources */,
+				231C921E205937FF004154FE /* lato-regular.ttf in Resources */,
 				231C920C205925F1004154FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
