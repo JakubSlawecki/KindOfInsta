@@ -54,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XvK-tN-hQ6">
                                         <rect key="frame" x="35" y="0.0" width="312" height="122"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-91-t7x">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-91-t7x" customClass="FancyField" customModule="KindOfInsta" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="312" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="1tP-3f-29A"/>
@@ -64,7 +64,7 @@
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-EX-Dtp">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nic-EX-Dtp" customClass="FancyField" customModule="KindOfInsta" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="46" width="312" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="8PU-YW-HEY"/>
