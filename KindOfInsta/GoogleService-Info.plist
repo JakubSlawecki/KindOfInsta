@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>546882787321-jcs9l4gu53bj26oq7m0j2rp4dqk3jjgp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.546882787321-jcs9l4gu53bj26oq7m0j2rp4dqk3jjgp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDIpm4Ia0ZB26JQ_FvVxQNJcWlxPkh52R4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>546882787321</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>JS.KindOfInsta</string>
+	<key>PROJECT_ID</key>
+	<string>kind-of-insta</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kind-of-insta.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:546882787321:ios:6acb192213f1497e</string>
+	<key>DATABASE_URL</key>
+	<string>https://kind-of-insta.firebaseio.com</string>
+</dict>
+</plist>
