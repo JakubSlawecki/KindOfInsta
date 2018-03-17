@@ -74,7 +74,7 @@
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpC-ya-XCS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpC-ya-XCS" customClass="FancyBtn" customModule="KindOfInsta" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="92" width="312" height="30"/>
                                                 <color key="backgroundColor" red="0.21430130365862765" green="0.52808789237224529" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -82,7 +82,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="j1j-oO-QNy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                <state key="normal" title="Sing in">
+                                                <state key="normal" title="Sign in">
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
@@ -108,6 +108,9 @@
                                                     <constraint firstAttribute="height" constant="17" id="qAd-Jf-zpJ"/>
                                                 </constraints>
                                                 <state key="normal" image="ConWithFBBtn"/>
+                                                <connections>
+                                                    <action selector="facebookBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p9u-HX-yVc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -134,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="60" id="QCE-Z5-SGQ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sing in and use more features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-2m-CZv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in and use more features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-2m-CZv">
                                 <rect key="frame" x="128" y="145" width="158" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BBV-4g-k8e"/>
