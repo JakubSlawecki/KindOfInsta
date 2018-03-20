@@ -18,6 +18,7 @@
 		231C9223205965EF004154FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C9222205965EF004154FE /* Constants.swift */; };
 		231C922520596C33004154FE /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C922420596C33004154FE /* FancyField.swift */; };
 		231C922720596DE5004154FE /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C922620596DE5004154FE /* FancyBtn.swift */; };
+		2363F45920613CF500CEEC22 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363F45820613CF500CEEC22 /* FeedVC.swift */; };
 		F57477A66309F78A9C610358 /* Pods_KindOfInsta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 		231C9222205965EF004154FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		231C922420596C33004154FE /* FancyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyField.swift; sourceTree = "<group>"; };
 		231C922620596DE5004154FE /* FancyBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
+		2363F45820613CF500CEEC22 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		2363F45A206149D400CEEC22 /* KindOfInsta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KindOfInsta.entitlements; sourceTree = "<group>"; };
 		3F6CE79D5C365602C596E4C1 /* Pods-KindOfInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.debug.xcconfig"; sourceTree = "<group>"; };
 		D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KindOfInsta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40297A0C07C01C5DABC64E5 /* Pods-KindOfInsta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.release.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		231C9205205925F1004154FE /* KindOfInsta */ = {
 			isa = PBXGroup;
 			children = (
+				2363F45A206149D400CEEC22 /* KindOfInsta.entitlements */,
 				231C9221205965D1004154FE /* Util */,
 				231C921C20592AC4004154FE /* Controller */,
 				231C921B20592ABB004154FE /* View */,
@@ -108,6 +112,7 @@
 		231C921C20592AC4004154FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2363F45820613CF500CEEC22 /* FeedVC.swift */,
 				231C9208205925F1004154FE /* SignInVC.swift */,
 			);
 			path = Controller;
@@ -174,6 +179,11 @@
 					231C9202205925F1004154FE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -241,6 +251,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -251,6 +262,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -282,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				231C922720596DE5004154FE /* FancyBtn.swift in Sources */,
+				2363F45920613CF500CEEC22 /* FeedVC.swift in Sources */,
 				231C9209205925F1004154FE /* SignInVC.swift in Sources */,
 				231C9207205925F1004154FE /* AppDelegate.swift in Sources */,
 				231C922520596C33004154FE /* FancyField.swift in Sources */,
@@ -424,6 +437,7 @@
 			baseConfigurationReference = 3F6CE79D5C365602C596E4C1 /* Pods-KindOfInsta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KindOfInsta/KindOfInsta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TNJ5QF4LT5;
 				INFOPLIST_FILE = KindOfInsta/Info.plist;
@@ -440,6 +454,7 @@
 			baseConfigurationReference = D40297A0C07C01C5DABC64E5 /* Pods-KindOfInsta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KindOfInsta/KindOfInsta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TNJ5QF4LT5;
 				INFOPLIST_FILE = KindOfInsta/Info.plist;

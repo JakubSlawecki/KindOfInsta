@@ -175,15 +175,79 @@
                     <connections>
                         <outlet property="emailField" destination="v6p-91-t7x" id="n5g-a8-xly"/>
                         <outlet property="passwordField" destination="Nic-EX-Dtp" id="zDt-E6-Uxk"/>
+                        <segue destination="EzX-cu-jyy" kind="show" identifier="goToFeed" id="Dca-dn-S6w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--FeedVC-->
+        <scene sceneID="Ake-TQ-FOT">
+            <objects>
+                <viewController id="EzX-cu-jyy" customClass="FeedVC" customModule="KindOfInsta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1eV-z5-4NI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIe-Jm-GfS" userLabel="Top">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kind Of Insta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyL-8X-NgW">
+                                        <rect key="frame" x="132.66666666666666" y="39" width="148.99999999999997" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="cSY-fK-jjY"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="emK-3Y-1Pn"/>
+                                            <constraint firstAttribute="width" constant="149" id="ojt-go-f4s"/>
+                                            <constraint firstAttribute="height" constant="31" id="zPN-HL-hnf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fO4-dP-Ia7">
+                                        <rect key="frame" x="367" y="41" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="27" id="KtX-6g-yiZ"/>
+                                            <constraint firstAttribute="height" constant="27" id="lsZ-Ct-iSR"/>
+                                        </constraints>
+                                        <state key="normal" image="signOutBtn"/>
+                                        <connections>
+                                            <action selector="signOutBtn:" destination="EzX-cu-jyy" eventType="touchUpInside" id="ko5-7h-Ytw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98028594255447388" green="0.98045331239700317" blue="0.98027533292770386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fO4-dP-Ia7" secondAttribute="trailing" constant="20" id="CDE-uF-xwe"/>
+                                    <constraint firstAttribute="height" constant="90" id="NKW-5X-WL0"/>
+                                    <constraint firstItem="cyL-8X-NgW" firstAttribute="centerX" secondItem="PIe-Jm-GfS" secondAttribute="centerX" id="Ng6-3q-ENz"/>
+                                    <constraint firstAttribute="bottom" secondItem="cyL-8X-NgW" secondAttribute="bottom" constant="20" id="SQ3-5Y-6Eg"/>
+                                    <constraint firstAttribute="bottom" secondItem="fO4-dP-Ia7" secondAttribute="bottom" constant="22" id="uhj-TQ-wMq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PIe-Jm-GfS" firstAttribute="top" secondItem="1eV-z5-4NI" secondAttribute="top" id="1hF-Tv-uVA"/>
+                            <constraint firstItem="PIe-Jm-GfS" firstAttribute="trailing" secondItem="1z3-5F-n7L" secondAttribute="trailing" id="Slc-RR-F7u"/>
+                            <constraint firstItem="PIe-Jm-GfS" firstAttribute="leading" secondItem="1z3-5F-n7L" secondAttribute="leading" id="jco-iq-3rM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1z3-5F-n7L"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="uQ7-FZ-mNJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfe-y5-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965" y="49"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ConWithFBBtn" width="662" height="83"/>
         <image name="backgroundKOI" width="1080" height="1920"/>
+        <image name="signOutBtn" width="50" height="50"/>
     </resources>
 </document>

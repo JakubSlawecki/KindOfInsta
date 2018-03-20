@@ -10,6 +10,8 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
+
 
 class SignInVC: UIViewController {
     
@@ -17,17 +19,18 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordField: FancyField!
     
 
-    override func viewDidLoad() {
+    override func viewDidLoad() {                   // Segue can not be in viewDidLoad, it's too early !
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {   // that's better place for Segue
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            performSegue(withIdentifier: "goToFeed", sender: nil)   // If there is uid in keychain it will performe Segue to the FeedVC
+        }
     }
+    
+   
     @IBAction func facebookBtnPressed(_ sender: Any) {
-        
         let facebookLogin = FBSDKLoginManager()
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
@@ -42,7 +45,6 @@ class SignInVC: UIViewController {
                 self.firebaseAuth(credential)
             }
         }
-        
     }
     
     func firebaseAuth(_ credential: AuthCredential) {
@@ -51,6 +53,10 @@ class SignInVC: UIViewController {
                 print("Jakub: Unable to auth with Firebase -\(String(describing: error))")
             } else {
                 print("Jakub: Successfully authenticated with Firebase")
+                if let user = user {
+                    self.completeSignIN(id: user.uid) // save that id to keychain
+                }
+                
             }
         })
     }
@@ -61,18 +67,33 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil { // thats means that email and pass is correct and we have that user
                     print("Jakub: Email User authenticated with Firebase")
+                    if let user = user {
+                        self.completeSignIN(id: user.uid) // save that id to keychain
+                    }
+                    
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                         if error != nil {
                             print("Jakub: Unable to authenticate with Firebase using email")
                         } else {
                             print("Jakub: Successfuky authenticated with Firebase")
+                            if let user = user {
+                                self.completeSignIN(id: user.uid) // save that id to keychain
+                            }
                         }
                     })
                 }
             })
         }
     }
+   
+    
+    func completeSignIN(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("Jakub: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "goToFeed", sender: nil) // it will performe Segue to FeedVC if credentials
+    }
+    
     
 }
 
