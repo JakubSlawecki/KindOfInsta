@@ -10,8 +10,12 @@ import UIKit
 
 class FancyProfileImage: UIImageView {
 
-    func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 10, dy: 5)
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
-
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        layer.cornerRadius = self.frame.width / 2
+    }
 }
