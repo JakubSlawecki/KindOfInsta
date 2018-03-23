@@ -115,8 +115,8 @@
 		231C921C20592AC4004154FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2363F45820613CF500CEEC22 /* FeedVC.swift */,
 				231C9208205925F1004154FE /* SignInVC.swift */,
+				2363F45820613CF500CEEC22 /* FeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
