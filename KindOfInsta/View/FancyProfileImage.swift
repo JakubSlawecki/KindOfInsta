@@ -9,13 +9,8 @@
 import UIKit
 
 class FancyProfileImage: UIImageView {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override func layoutSubviews() {
         layer.cornerRadius = self.frame.width / 2
     }
 }

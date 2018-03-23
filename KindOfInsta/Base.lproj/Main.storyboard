@@ -227,15 +227,15 @@
                                     <constraint firstAttribute="bottom" secondItem="fO4-dP-Ia7" secondAttribute="bottom" constant="22" id="uhj-TQ-wMq"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hax-DT-OUH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hax-DT-OUH">
                                 <rect key="frame" x="0.0" y="90" width="414" height="596"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="537" id="NUf-v2-eCw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="537" id="NUf-v2-eCw" customClass="PostCell" customModule="KindOfInsta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="537"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NUf-v2-eCw" id="Ln2-mY-8AI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="536.66666666666663"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="537"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-3I-NtU" userLabel="whole cell view">
@@ -251,7 +251,7 @@
                                                                         <constraint firstAttribute="height" constant="42" id="L5z-dq-efh"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-4r-OhT">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JakubSlawecki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-4r-OhT">
                                                                     <rect key="frame" x="69" y="15" width="175" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="IX5-mG-CPt"/>
@@ -354,6 +354,13 @@
                                                 <constraint firstItem="BZO-3I-NtU" firstAttribute="leading" secondItem="Ln2-mY-8AI" secondAttribute="leading" id="hqT-Tg-gzY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caption" destination="hd2-kG-IQC" id="tH7-81-Csg"/>
+                                            <outlet property="likesLbl" destination="fzn-h5-hOx" id="Lyj-mE-prY"/>
+                                            <outlet property="postImg" destination="SPG-GS-HZl" id="4WG-C3-vMa"/>
+                                            <outlet property="profileImg" destination="ELC-o6-2fV" id="cfr-Hi-QVi"/>
+                                            <outlet property="usernameLbl" destination="0dK-4r-OhT" id="2oy-45-7gf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -377,7 +384,7 @@
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="PE1-1C-pXr" userLabel="add image" customClass="FancyProfileImage" customModule="KindOfInsta" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="PE1-1C-pXr" userLabel="add image">
                                         <rect key="frame" x="16" y="7" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="Okt-Ul-1aj"/>
@@ -414,6 +421,7 @@
                         <viewLayoutGuide key="safeArea" id="1z3-5F-n7L"/>
                     </view>
                     <connections>
+                        <outlet property="tableVIew" destination="Hax-DT-OUH" id="nOb-Ic-Uu4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="uQ7-FZ-mNJ"/>
                     </connections>
                 </viewController>
