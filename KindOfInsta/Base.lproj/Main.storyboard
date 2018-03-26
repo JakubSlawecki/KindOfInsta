@@ -289,15 +289,15 @@
                                                                     </constraints>
                                                                     <state key="normal" image="heartIcon"/>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love my dog, Esme! &lt;3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-kG-IQC">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I love my dog, Esme! &lt;3" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-AL-iVd">
                                                                     <rect key="frame" x="70" y="3" width="312" height="41"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="41" id="WdB-dx-6Zk"/>
+                                                                        <constraint firstAttribute="height" constant="41" id="28E-WH-yeQ"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartIconblack" translatesAutoresizingMaskIntoConstraints="NO" id="udk-2h-L3D">
                                                                     <rect key="frame" x="10" y="41" width="28" height="28"/>
                                                                     <constraints>
@@ -319,14 +319,14 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="ay2-VF-wdX" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="6" id="00S-m0-6lE"/>
+                                                                <constraint firstAttribute="trailing" secondItem="m6x-AL-iVd" secondAttribute="trailing" constant="32" id="57j-aD-mp9"/>
                                                                 <constraint firstItem="fzn-h5-hOx" firstAttribute="leading" secondItem="udk-2h-L3D" secondAttribute="trailing" constant="4" id="A4Y-2i-ITy"/>
-                                                                <constraint firstItem="fzn-h5-hOx" firstAttribute="top" secondItem="hd2-kG-IQC" secondAttribute="bottom" id="F2k-a8-MU6"/>
-                                                                <constraint firstAttribute="trailing" secondItem="hd2-kG-IQC" secondAttribute="trailing" constant="32" id="HiU-jb-zcl"/>
-                                                                <constraint firstItem="hd2-kG-IQC" firstAttribute="leading" secondItem="ay2-VF-wdX" secondAttribute="trailing" constant="16" id="MCw-CZ-ask"/>
                                                                 <constraint firstItem="ay2-VF-wdX" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="19" id="NLZ-rr-fkO"/>
                                                                 <constraint firstItem="udk-2h-L3D" firstAttribute="top" secondItem="ay2-VF-wdX" secondAttribute="bottom" id="ZLJ-87-sKt"/>
+                                                                <constraint firstItem="m6x-AL-iVd" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="3" id="bpB-e3-SXD"/>
+                                                                <constraint firstItem="fzn-h5-hOx" firstAttribute="top" secondItem="m6x-AL-iVd" secondAttribute="bottom" id="ezh-Lt-zyM"/>
                                                                 <constraint firstAttribute="height" constant="70" id="gw0-6X-juE"/>
-                                                                <constraint firstItem="hd2-kG-IQC" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="3" id="lwC-Qe-gVA"/>
+                                                                <constraint firstItem="m6x-AL-iVd" firstAttribute="leading" secondItem="ay2-VF-wdX" secondAttribute="trailing" constant="16" id="mA8-bM-HRU"/>
                                                                 <constraint firstItem="udk-2h-L3D" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="10" id="osE-GZ-6Bo"/>
                                                             </constraints>
                                                         </view>
@@ -355,7 +355,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="caption" destination="hd2-kG-IQC" id="tH7-81-Csg"/>
+                                            <outlet property="caption" destination="m6x-AL-iVd" id="MhT-Nr-IE6"/>
                                             <outlet property="likesLbl" destination="fzn-h5-hOx" id="Lyj-mE-prY"/>
                                             <outlet property="postImg" destination="SPG-GS-HZl" id="4WG-C3-vMa"/>
                                             <outlet property="profileImg" destination="ELC-o6-2fV" id="cfr-Hi-QVi"/>
