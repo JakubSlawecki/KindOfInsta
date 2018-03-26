@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # KindOfInsta
+=======
+ KindOfInsta
+>>>>>>> firebase-users
 ## Location Data, Firebase, TableVIews, Facebook authorization 
 
 A photo-sharing application and service that allows users to share pictures 

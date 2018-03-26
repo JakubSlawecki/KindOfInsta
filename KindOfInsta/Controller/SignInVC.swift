@@ -54,7 +54,8 @@ class SignInVC: UIViewController {
             } else {
                 print("Jakub: Successfully authenticated with Firebase")
                 if let user = user {
-                    self.completeSignIN(id: user.uid) // save that id to keychain
+                    let userData = ["provider": credential.provider]  // for firebase database provider is Facebook in that case so credential provider
+                    self.completeSignIN(id: user.uid, userData: userData) // save that id to keychain
                 }
                 
             }
@@ -68,7 +69,8 @@ class SignInVC: UIViewController {
                 if error == nil { // thats means that email and pass is correct and we have that user
                     print("Jakub: Email User authenticated with Firebase")
                     if let user = user {
-                        self.completeSignIN(id: user.uid) // save that id to keychain
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIN(id: user.uid, userData: userData) // save that id to keychain
                     }
                     
                 } else {
@@ -78,7 +80,8 @@ class SignInVC: UIViewController {
                         } else {
                             print("Jakub: Successfuky authenticated with Firebase")
                             if let user = user {
-                                self.completeSignIN(id: user.uid) // save that id to keychain
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIN(id: user.uid, userData: userData) // save that id to keychain
                             }
                         }
                     })
@@ -88,7 +91,8 @@ class SignInVC: UIViewController {
     }
    
     
-    func completeSignIN(id: String) {
+    func completeSignIN(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("Jakub: Data saved to keychain \(keychainResult)")
         performSegue(withIdentifier: "goToFeed", sender: nil) // it will performe Segue to FeedVC if credentials

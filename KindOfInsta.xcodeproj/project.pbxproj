@@ -21,6 +21,7 @@
 		231C922720596DE5004154FE /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C922620596DE5004154FE /* FancyBtn.swift */; };
 		232BC57E20651C2E0001BAAA /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BC57D20651C2E0001BAAA /* PostCell.swift */; };
 		2363F45920613CF500CEEC22 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363F45820613CF500CEEC22 /* FeedVC.swift */; };
+		23A025892068E507001873D3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A025882068E507001873D3 /* DataService.swift */; };
 		F57477A66309F78A9C610358 /* Pods_KindOfInsta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		232BC57D20651C2E0001BAAA /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		2363F45820613CF500CEEC22 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		2363F45A206149D400CEEC22 /* KindOfInsta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KindOfInsta.entitlements; sourceTree = "<group>"; };
+		23A025882068E507001873D3 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3F6CE79D5C365602C596E4C1 /* Pods-KindOfInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.debug.xcconfig"; sourceTree = "<group>"; };
 		D237F39C7DAD8CEFC4F8DB58 /* Pods_KindOfInsta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KindOfInsta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40297A0C07C01C5DABC64E5 /* Pods-KindOfInsta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindOfInsta.release.xcconfig"; path = "Pods/Target Support Files/Pods-KindOfInsta/Pods-KindOfInsta.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		231C9205205925F1004154FE /* KindOfInsta */ = {
 			isa = PBXGroup;
 			children = (
+				23A025872068E4B8001873D3 /* Services */,
 				2363F45A206149D400CEEC22 /* KindOfInsta.entitlements */,
 				231C9221205965D1004154FE /* Util */,
 				231C921C20592AC4004154FE /* Controller */,
@@ -130,6 +133,14 @@
 				231C9222205965EF004154FE /* Constants.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		23A025872068E4B8001873D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				23A025882068E507001873D3 /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		612216858711F726AF052CA0 /* Frameworks */ = {
@@ -308,6 +319,7 @@
 				231C922020596541004154FE /* FancyView.swift in Sources */,
 				231C9223205965EF004154FE /* Constants.swift in Sources */,
 				230C09C220629EBD0017CA04 /* FancyProfileImage.swift in Sources */,
+				23A025892068E507001873D3 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
