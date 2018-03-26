@@ -19,6 +19,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableVIew.delegate = self
         tableVIew.dataSource = self
+        
+        DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
+            print(snapshot.value as Any)  // this will observe for any changes in database !
+        }
        
     }
 
@@ -33,6 +37,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableVIew.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
+    
     
     
     
