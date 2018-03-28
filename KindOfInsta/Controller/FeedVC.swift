@@ -10,17 +10,23 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableVIew: UITableView!
+    @IBOutlet weak var addImage: UIImageView!
     
     var posts = [Post]()
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableVIew.delegate = self
         tableVIew.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true // thats nice!
+        imagePicker.delegate = self
         
                                 // this will observe for any changes in database !
         DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
@@ -65,12 +71,24 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            addImage.image = image
+        } else {
+            print("Jakub: A valid image wasn't selected")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    } // that func will dissmis imagePicker after w chose image
     
     
     
     
     
     
+    
+    @IBAction func addImagePressed(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
     
     
                             // to sign out i need to remove id from Keychain and sign out from Firebase

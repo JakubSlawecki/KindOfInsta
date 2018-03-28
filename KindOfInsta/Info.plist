@@ -45,25 +45,27 @@
 	<array>
 		<string>lato-regular.ttf</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb157047255111889</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>157047255111889</string>
-    <key>FacebookDisplayName</key>
-    <string>KindOfInsta</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb157047255111889</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>157047255111889</string>
+	<key>FacebookDisplayName</key>
+	<string>KindOfInsta</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access to photos is required for posting</string>
 </dict>
 </plist>

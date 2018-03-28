@@ -384,12 +384,16 @@
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="PE1-1C-pXr" userLabel="add image">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="PE1-1C-pXr" userLabel="add image">
                                         <rect key="frame" x="16" y="7" width="35" height="35"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="Okt-Ul-1aj"/>
                                             <constraint firstAttribute="height" constant="35" id="gYC-Bf-dh5"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="449-sS-ss9" appends="YES" id="hOC-qn-HDa"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98028594260000002" green="0.9804533124" blue="0.98027533290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -421,11 +425,17 @@
                         <viewLayoutGuide key="safeArea" id="1z3-5F-n7L"/>
                     </view>
                     <connections>
+                        <outlet property="addImage" destination="PE1-1C-pXr" id="oir-7b-Idh"/>
                         <outlet property="tableVIew" destination="Hax-DT-OUH" id="nOb-Ic-Uu4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="uQ7-FZ-mNJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfe-y5-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="449-sS-ss9">
+                    <connections>
+                        <action selector="addImagePressed:" destination="EzX-cu-jyy" id="tVh-vU-jbZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="48.913043478260875"/>
         </scene>
