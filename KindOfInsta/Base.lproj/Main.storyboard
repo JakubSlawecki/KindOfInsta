@@ -217,14 +217,27 @@
                                             <action selector="signOutBtn:" destination="EzX-cu-jyy" eventType="touchUpInside" id="ko5-7h-Ytw"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-add-512" translatesAutoresizingMaskIntoConstraints="NO" id="jat-DC-wCX" userLabel="addProfileImage">
+                                        <rect key="frame" x="20" y="37" width="35" height="35"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="A4m-kB-iBW"/>
+                                            <constraint firstAttribute="width" constant="35" id="i39-pO-1Vq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="fZl-8K-vUj" appends="YES" id="1vU-FC-PGq"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98028594255447388" green="0.98045331239700317" blue="0.98027533292770386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fO4-dP-Ia7" secondAttribute="trailing" constant="20" id="CDE-uF-xwe"/>
+                                    <constraint firstItem="jat-DC-wCX" firstAttribute="leading" secondItem="PIe-Jm-GfS" secondAttribute="leading" constant="20" id="K58-4U-E0o"/>
                                     <constraint firstAttribute="height" constant="90" id="NKW-5X-WL0"/>
                                     <constraint firstItem="cyL-8X-NgW" firstAttribute="centerX" secondItem="PIe-Jm-GfS" secondAttribute="centerX" id="Ng6-3q-ENz"/>
                                     <constraint firstAttribute="bottom" secondItem="cyL-8X-NgW" secondAttribute="bottom" constant="20" id="SQ3-5Y-6Eg"/>
                                     <constraint firstAttribute="bottom" secondItem="fO4-dP-Ia7" secondAttribute="bottom" constant="22" id="uhj-TQ-wMq"/>
+                                    <constraint firstAttribute="bottom" secondItem="jat-DC-wCX" secondAttribute="bottom" constant="18" id="wsz-4F-Cbx"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hax-DT-OUH">
@@ -272,7 +285,7 @@
                                                                 <constraint firstItem="0dK-4r-OhT" firstAttribute="leading" secondItem="ELC-o6-2fV" secondAttribute="trailing" constant="8" id="taO-ZJ-N6y"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1443" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-GS-HZl" userLabel="Feed">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-GS-HZl" userLabel="Feed">
                                                             <rect key="frame" x="0.0" y="50" width="414" height="414"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="414" id="6Vi-gt-qQZ"/>
@@ -426,6 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="addImage" destination="PE1-1C-pXr" id="oir-7b-Idh"/>
+                        <outlet property="addProfileImage" destination="jat-DC-wCX" id="MD4-HU-dAH"/>
                         <outlet property="tableVIew" destination="Hax-DT-OUH" id="nOb-Ic-Uu4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="uQ7-FZ-mNJ"/>
                     </connections>
@@ -436,13 +450,17 @@
                         <action selector="addImagePressed:" destination="EzX-cu-jyy" id="tVh-vU-jbZ"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="fZl-8K-vUj">
+                    <connections>
+                        <action selector="addProfileImagePressed:" destination="EzX-cu-jyy" id="0WF-vo-MEg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="48.913043478260875"/>
         </scene>
     </scenes>
     <resources>
         <image name="ConWithFBBtn" width="662" height="83"/>
-        <image name="IMG_1443" width="4032" height="3024"/>
         <image name="addImage" width="50" height="50"/>
         <image name="arrowIcon" width="50" height="50"/>
         <image name="backgroundKOI" width="1080" height="1920"/>
@@ -450,5 +468,6 @@
         <image name="heartIconblack" width="50" height="50"/>
         <image name="profile" width="360" height="450"/>
         <image name="signOutBtn" width="50" height="50"/>
+        <image name="user-add-512" width="512" height="512"/>
     </resources>
 </document>

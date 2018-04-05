@@ -11,6 +11,7 @@ import Foundation
 class Post {
     private var _caption: String!
     private var _imageUrl: String!
+    private var _profileImageUrl: String!
     private var _likes: Int!
     private var _postKey: String!
     
@@ -22,6 +23,10 @@ class Post {
         return _imageUrl
     }
     
+    var profileImageUrl: String {
+        return _profileImageUrl
+    }
+    
     var likes: Int {
         return _likes
     }
@@ -30,10 +35,11 @@ class Post {
         return _postKey
     }
     
-    init(caption: String, imageUrl: String, likes: Int) {
+    init(caption: String, imageUrl: String, profileImageUrl: String, likes: Int) {
         self._caption = caption
         self._imageUrl = imageUrl
         self._likes = likes
+        self._profileImageUrl = profileImageUrl
     }
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) { // this ll convert firebase data into something that I can use ;)
@@ -45,6 +51,10 @@ class Post {
         
         if let imageUrl = postData["imageUrl"] as? String {
             self._imageUrl = imageUrl
+        }
+        
+        if let profileImageUrl = postData["profileImageUrl"] as? String {
+            self._profileImageUrl = profileImageUrl
         }
         
         if let likes = postData["likes"] as? Int {

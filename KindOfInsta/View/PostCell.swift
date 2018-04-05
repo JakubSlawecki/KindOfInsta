@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
 
@@ -23,17 +24,62 @@ class PostCell: UITableViewCell {
         
     }
     
-    func configureCell(post: Post) {
+    func configureCell(post: Post, img: UIImage? = nil, userImg: UIImage? = nil) {
         self.post = post
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes) likes"
         
+        if img != nil {
+            self.postImg.image = img
+        } else {
+            let ref = Storage.storage().reference(forURL: post.imageUrl)
+            ref.getData(maxSize: 4 * 5000 * 5000, completion: { (data, error) in
+                if error != nil {
+                    print("Jakub: Ubable to download image from Firebase Storage")
+                } else {
+                    print("Jakub: Image downloaded from Firebase Storage")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.postImg.image = img
+                            FeedVC.imageCache.setObject(img, forKey: post.imageUrl as NSString)
+                            
+                        }
+                    }
+                }
+            })
+        }
+        
+        
+        if userImg != nil {
+            self.profileImg.image = userImg
+        } else {
+            let ref = Storage.storage().reference(forURL: post.profileImageUrl)
+            ref.getData(maxSize: 4 * 5000 * 5000, completion: { (data, error) in
+                if error != nil {
+                    print("Jakub: Ubable to download ProfileImage from Firebase Storage")
+                } else {
+                    print("Jakub: Profile Image downloaded from Firebase Storage")
+                    if let profileImgData = data {
+                        if let profileImg = UIImage(data: profileImgData) {
+                            self.profileImg.image = profileImg
+                            FeedVC.profileImageCache.setObject(profileImg, forKey: post.profileImageUrl as NSString)
+                        }
+                    }
+                    
+                }
+            })
+        }
     }
     
-    
-
-    
-    
-    
-    
 }
+
+
+
+
+
+
+
+
+
+
+
