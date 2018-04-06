@@ -380,13 +380,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnx-dk-HdZ" userLabel="Bottom, add pic, comment, add btn">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMU-mq-nOw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMU-mq-nOw" userLabel="postBtn">
                                         <rect key="frame" x="363" y="7" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="9ue-3l-d6x"/>
                                             <constraint firstAttribute="width" constant="35" id="XhC-Yh-Uhi"/>
                                         </constraints>
                                         <state key="normal" image="arrowIcon"/>
+                                        <connections>
+                                            <action selector="postBtnPressed:" destination="EzX-cu-jyy" eventType="touchUpInside" id="mMH-je-4La"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vlt-Ku-7R8">
                                         <rect key="frame" x="59" y="10" width="296" height="30"/>
@@ -440,6 +443,7 @@
                     <connections>
                         <outlet property="addImage" destination="PE1-1C-pXr" id="oir-7b-Idh"/>
                         <outlet property="addProfileImage" destination="jat-DC-wCX" id="MD4-HU-dAH"/>
+                        <outlet property="captionField" destination="Vlt-Ku-7R8" id="8bA-gV-66V"/>
                         <outlet property="tableVIew" destination="Hax-DT-OUH" id="nOb-Ic-Uu4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="uQ7-FZ-mNJ"/>
                     </connections>
@@ -453,10 +457,90 @@
                 <tapGestureRecognizer id="fZl-8K-vUj">
                     <connections>
                         <action selector="addProfileImagePressed:" destination="EzX-cu-jyy" id="0WF-vo-MEg"/>
+                        <segue destination="gHJ-3J-dvd" kind="show" identifier="goToAddProfileImgVC" id="kmn-he-MfM"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="48.913043478260875"/>
+        </scene>
+        <!--Add Profile ImgVC-->
+        <scene sceneID="IYZ-qa-Fy5">
+            <objects>
+                <viewController id="gHJ-3J-dvd" customClass="AddProfileImgVC" customModule="KindOfInsta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wZQ-jm-zfG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ql8-lQ-bUz" userLabel="Top">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kind Of Insta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf5-LO-Gla">
+                                        <rect key="frame" x="132.66666666666666" y="39" width="148.99999999999997" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="149" id="Gan-MT-ZiT"/>
+                                            <constraint firstAttribute="height" constant="31" id="KDs-gv-WAq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkb-qw-4id">
+                                        <rect key="frame" x="367" y="41" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="Rdc-2N-4SU"/>
+                                            <constraint firstAttribute="width" constant="27" id="zUc-Kn-JlJ"/>
+                                        </constraints>
+                                        <state key="normal" image="arrowIcon"/>
+                                        <connections>
+                                            <action selector="signOutBtn:" destination="EzX-cu-jyy" eventType="touchUpInside" id="D7Q-ZJ-Ikr"/>
+                                            <segue destination="EzX-cu-jyy" kind="show" identifier="backToFeedVC" id="5SU-Vc-04f"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98028594260000002" green="0.9804533124" blue="0.98027533290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Kkb-qw-4id" secondAttribute="trailing" constant="20" id="5bg-Tp-x7u"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kf5-LO-Gla" secondAttribute="bottom" constant="20" id="89X-oc-QE9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kkb-qw-4id" secondAttribute="bottom" constant="22" id="j8K-hl-yTC"/>
+                                    <constraint firstItem="Kf5-LO-Gla" firstAttribute="centerX" secondItem="Ql8-lQ-bUz" secondAttribute="centerX" id="ls4-7R-vAa"/>
+                                    <constraint firstAttribute="height" constant="90" id="uNg-H4-dfT"/>
+                                </constraints>
+                            </view>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-add-512" translatesAutoresizingMaskIntoConstraints="NO" id="Gql-wy-OSw">
+                                <rect key="frame" x="87" y="248" width="240" height="240"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="5gU-ZD-ttZ"/>
+                                    <constraint firstAttribute="height" constant="240" id="BN7-sO-rOY"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="n1j-NT-0lI" appends="YES" id="weL-uh-ug5"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ql8-lQ-bUz" firstAttribute="trailing" secondItem="Do7-qb-K0u" secondAttribute="trailing" id="5oH-CS-r4F"/>
+                            <constraint firstItem="Gql-wy-OSw" firstAttribute="centerY" secondItem="wZQ-jm-zfG" secondAttribute="centerY" id="BMj-WB-Egy"/>
+                            <constraint firstItem="Gql-wy-OSw" firstAttribute="centerX" secondItem="wZQ-jm-zfG" secondAttribute="centerX" id="HaO-jq-Yg3"/>
+                            <constraint firstItem="Ql8-lQ-bUz" firstAttribute="leading" secondItem="Do7-qb-K0u" secondAttribute="leading" id="RQq-bv-EvQ"/>
+                            <constraint firstItem="Ql8-lQ-bUz" firstAttribute="top" secondItem="wZQ-jm-zfG" secondAttribute="top" id="TDf-xt-Yk2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Do7-qb-K0u"/>
+                    </view>
+                    <connections>
+                        <outlet property="addProfileImgField" destination="Gql-wy-OSw" id="V2W-nP-fwi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wl-FO-vl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="n1j-NT-0lI">
+                    <connections>
+                        <action selector="addProfileImgFieldPressed:" destination="gHJ-3J-dvd" id="sf5-Py-fO4"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1830.4347826086957" y="15.489130434782609"/>
         </scene>
     </scenes>
     <resources>
@@ -470,4 +554,7 @@
         <image name="signOutBtn" width="50" height="50"/>
         <image name="user-add-512" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5SU-Vc-04f"/>
+    </inferredMetricsTieBreakers>
 </document>

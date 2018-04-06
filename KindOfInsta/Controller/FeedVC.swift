@@ -15,6 +15,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var addProfileImage: UIImageView!
+    @IBOutlet weak var captionField: UITextField!
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
@@ -34,9 +35,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true // thats nice!
         imagePicker.delegate = self
         
-        profileImagePicker = UIImagePickerController()
-        profileImagePicker.allowsEditing = true
-        profileImagePicker.delegate = self
         
         
                                 // this will observe for any changes in database !
@@ -74,9 +72,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         if let cell = tableVIew.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString)
+//            let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString)
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString), let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString) {
                 cell.configureCell(post: post, img: img, userImg: userImg)
                 return cell
             } else {
@@ -89,14 +87,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
-    func profileImagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let profileImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            addProfileImage.image = profileImage
-        } else {
-            print("Jakub: A valid image wasn't selected")
-        }
-        profileImagePicker.dismiss(animated: true, completion: nil)
-    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
@@ -108,19 +99,37 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
+    
+    
    
     
     
     
-    
+//    @IBAction func postBtnPressed(_ sender: Any) {
+//        guard let caption = captionField.text, caption != "" else {
+//            print("Jakub: Caption must be entered")
+//            return
+//        }
+//        guard let img = addImage.image else {
+//            print("Jakub: An image must be selected")
+//            return
+//        }
+//        guard let profileImg = addProfileImage.image else {
+//            print("Jakub: An Profile image must be selected")
+//            return
+//        }
+//        
+//        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+//            
+//        }
+//        
+//        
+//    }
     
     @IBAction func addImagePressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func addProfileImagePressed(_ sender: Any) {
-        present(profileImagePicker, animated: true, completion: nil)
-    }
     
                             // to sign out i need to remove id from Keychain and sign out from Firebase
     @IBAction func signOutBtn(_ sender: Any) {
