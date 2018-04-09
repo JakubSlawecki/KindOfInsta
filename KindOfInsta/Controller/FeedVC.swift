@@ -22,6 +22,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var profileImagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     static var profileImageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             addImage.image = image
+            imageSelected = true
         } else {
             print("Jakub: A valid image wasn't selected")
         }
@@ -105,26 +107,41 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     
     
-//    @IBAction func postBtnPressed(_ sender: Any) {
-//        guard let caption = captionField.text, caption != "" else {
-//            print("Jakub: Caption must be entered")
-//            return
-//        }
-//        guard let img = addImage.image else {
-//            print("Jakub: An image must be selected")
-//            return
-//        }
+    @IBAction func postBtnPressed(_ sender: Any) {
+        guard let caption = captionField.text, caption != "" else {
+            print("Jakub: Caption must be entered")
+            return
+        }
+        guard let img = addImage.image, imageSelected == true else {
+            print("Jakub: An image must be selected")
+            return
+        }
 //        guard let profileImg = addProfileImage.image else {
 //            print("Jakub: An Profile image must be selected")
 //            return
 //        }
-//        
-//        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
-//            
-//        }
-//        
-//        
-//    }
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            //The UUIDString just creates a UNIQUE name for your image file. As each image name will need to be
+            //unique and this creates a random String made of unique string of characters
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            DataService.ds.REF_POST_IMAGES.child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print("Jakub: Unable to upload image to Firebase Storage")
+                } else {
+                    print("Jakub: Successfully uploaded image to Firebase Storage")
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                }
+            }
+        }
+        
+        
+    }
     
     @IBAction func addImagePressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
