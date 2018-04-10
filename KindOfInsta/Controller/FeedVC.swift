@@ -48,7 +48,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let post = Post(postKey: key, postData: postDict)
-                        self.posts.append(post) // append new post to posts array as it goes through this loop
+                        self.posts.insert(post, at: 0) // append new post to posts array as it goes through this loop
                     }
                 }
                 self.tableVIew.reloadData()
@@ -75,8 +75,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             
 //            let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString)
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString), let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString) {
-                cell.configureCell(post: post, img: img, userImg: userImg)
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) { //, let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString) {
+                cell.configureCell(post: post, img: img)//, userImg: userImg)
                 return cell
             } else {
                 cell.configureCell(post: post)
@@ -157,6 +157,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         captionField.text = ""
         imageSelected = false
         addImage.image = UIImage(named: "addImage")
+        
     }
     
     

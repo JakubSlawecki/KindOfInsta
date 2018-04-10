@@ -50,25 +50,25 @@ class PostCell: UITableViewCell {
         }
         
         
-        if userImg != nil {
-            self.profileImg.image = userImg
-        } else {
-            let ref = Storage.storage().reference(forURL: post.profileImageUrl)
-            ref.getData(maxSize: 4 * 5000 * 5000, completion: { (data, error) in
-                if error != nil {
-                    print("Jakub: Ubable to download ProfileImage from Firebase Storage")
-                } else {
-                    print("Jakub: Profile Image downloaded from Firebase Storage")
-                    if let profileImgData = data {
-                        if let profileImg = UIImage(data: profileImgData) {
-                            self.profileImg.image = profileImg
-                            FeedVC.profileImageCache.setObject(profileImg, forKey: post.profileImageUrl as NSString)
-                        }
-                    }
-                    
-                }
-            })
-        }
+//        if userImg != nil {
+//            self.profileImg.image = userImg
+//        } else {
+//            let ref = Storage.storage().reference(forURL: post.profileImageUrl)
+//            ref.getData(maxSize: 4 * 5000 * 5000, completion: { (data, error) in
+//                if error != nil {
+//                    print("Jakub: Ubable to download ProfileImage from Firebase Storage")
+//                } else {
+//                    print("Jakub: Profile Image downloaded from Firebase Storage")
+//                    if let profileImgData = data {
+//                        if let profileImg = UIImage(data: profileImgData) {
+//                            self.profileImg.image = profileImg
+//                            FeedVC.profileImageCache.setObject(profileImg, forKey: post.profileImageUrl as NSString)
+//                        }
+//                    }
+//                    
+//                }
+//            })
+//        }
     }
     
 }
