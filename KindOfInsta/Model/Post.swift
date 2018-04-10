@@ -23,9 +23,9 @@ class Post {
         return _imageUrl
     }
     
-    var profileImageUrl: String {
-        return _profileImageUrl
-    }
+//    var profileImageUrl: String {
+//        return _profileImageUrl
+//    }
     
     var likes: Int {
         return _likes

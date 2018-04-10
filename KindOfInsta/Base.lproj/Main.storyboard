@@ -555,6 +555,7 @@
         <image name="user-add-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kmn-he-MfM"/>
         <segue reference="5SU-Vc-04f"/>
     </inferredMetricsTieBreakers>
 </document>
