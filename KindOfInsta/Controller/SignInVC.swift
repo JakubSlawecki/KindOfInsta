@@ -78,7 +78,7 @@ class SignInVC: UIViewController {
                         if error != nil {
                             print("Jakub: Unable to authenticate with Firebase using email")
                         } else {
-                            print("Jakub: Successfuky authenticated with Firebase")
+                            print("Jakub: Successfully authenticated with Firebase")
                             if let user = user {
                                 let userData = ["provider": user.providerID]
                                 self.completeSignIN(id: user.uid, userData: userData) // save that id to keychain

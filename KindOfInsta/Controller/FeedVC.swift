@@ -41,7 +41,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                 // this will observe for any changes in database !
         DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
             print(snapshot.value as Any) // only for checking
-            
+            self.posts = []
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     print("Snap: \(snap)")

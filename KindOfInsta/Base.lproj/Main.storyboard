@@ -294,14 +294,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xm-zR-J5X" userLabel="Bottom, like, no likes, comment">
                                                             <rect key="frame" x="0.0" y="464" width="414" height="70"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ay2-VF-wdX">
-                                                                    <rect key="frame" x="19" y="6" width="35" height="35"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="DSK-3t-MWh">
+                                                                    <rect key="frame" x="20" y="5" width="37" height="37"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="35" id="9P8-kb-oMP"/>
-                                                                        <constraint firstAttribute="width" constant="35" id="O08-Nn-Yd5"/>
+                                                                        <constraint firstAttribute="width" constant="37" id="KZj-X9-YTO"/>
+                                                                        <constraint firstAttribute="height" constant="37" id="pX9-X8-9us"/>
                                                                     </constraints>
-                                                                    <state key="normal" image="heartIcon"/>
-                                                                </button>
+                                                                </imageView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I love my dog, Esme! &lt;3" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-AL-iVd">
                                                                     <rect key="frame" x="70" y="3" width="312" height="41"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,15 +310,8 @@
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartIconblack" translatesAutoresizingMaskIntoConstraints="NO" id="udk-2h-L3D">
-                                                                    <rect key="frame" x="10" y="41" width="28" height="28"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="28" id="kbq-KX-bUF"/>
-                                                                        <constraint firstAttribute="width" constant="28" id="kvN-S1-beV"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzn-h5-hOx">
-                                                                    <rect key="frame" x="42" y="44" width="75" height="21"/>
+                                                                    <rect key="frame" x="64" y="44" width="75" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="9f6-Vu-HO7"/>
                                                                         <constraint firstAttribute="height" constant="21" id="lky-XL-7jh"/>
@@ -328,19 +320,26 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartIconblack" translatesAutoresizingMaskIntoConstraints="NO" id="udk-2h-L3D">
+                                                                    <rect key="frame" x="33" y="42" width="29" height="28"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="28" id="NRm-RW-Ipm"/>
+                                                                        <constraint firstAttribute="width" constant="29" id="hOz-HI-3S3"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="ay2-VF-wdX" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="6" id="00S-m0-6lE"/>
                                                                 <constraint firstAttribute="trailing" secondItem="m6x-AL-iVd" secondAttribute="trailing" constant="32" id="57j-aD-mp9"/>
-                                                                <constraint firstItem="fzn-h5-hOx" firstAttribute="leading" secondItem="udk-2h-L3D" secondAttribute="trailing" constant="4" id="A4Y-2i-ITy"/>
-                                                                <constraint firstItem="ay2-VF-wdX" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="19" id="NLZ-rr-fkO"/>
-                                                                <constraint firstItem="udk-2h-L3D" firstAttribute="top" secondItem="ay2-VF-wdX" secondAttribute="bottom" id="ZLJ-87-sKt"/>
+                                                                <constraint firstItem="DSK-3t-MWh" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="5" id="5g6-se-XC6"/>
+                                                                <constraint firstItem="fzn-h5-hOx" firstAttribute="leading" secondItem="udk-2h-L3D" secondAttribute="trailing" constant="2" id="68Z-B1-wea"/>
+                                                                <constraint firstItem="udk-2h-L3D" firstAttribute="top" secondItem="DSK-3t-MWh" secondAttribute="bottom" id="ALU-pb-brB"/>
+                                                                <constraint firstItem="DSK-3t-MWh" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="20" id="GAL-fz-4j1"/>
                                                                 <constraint firstItem="m6x-AL-iVd" firstAttribute="top" secondItem="3xm-zR-J5X" secondAttribute="top" constant="3" id="bpB-e3-SXD"/>
+                                                                <constraint firstItem="udk-2h-L3D" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="33" id="dVS-TA-s4E"/>
                                                                 <constraint firstItem="fzn-h5-hOx" firstAttribute="top" secondItem="m6x-AL-iVd" secondAttribute="bottom" id="ezh-Lt-zyM"/>
                                                                 <constraint firstAttribute="height" constant="70" id="gw0-6X-juE"/>
-                                                                <constraint firstItem="m6x-AL-iVd" firstAttribute="leading" secondItem="ay2-VF-wdX" secondAttribute="trailing" constant="16" id="mA8-bM-HRU"/>
-                                                                <constraint firstItem="udk-2h-L3D" firstAttribute="leading" secondItem="3xm-zR-J5X" secondAttribute="leading" constant="10" id="osE-GZ-6Bo"/>
+                                                                <constraint firstItem="m6x-AL-iVd" firstAttribute="leading" secondItem="DSK-3t-MWh" secondAttribute="trailing" constant="13" id="oSX-cj-BCw"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -369,6 +368,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="caption" destination="m6x-AL-iVd" id="MhT-Nr-IE6"/>
+                                            <outlet property="likeImg" destination="DSK-3t-MWh" id="wU8-cY-FGM"/>
                                             <outlet property="likesLbl" destination="fzn-h5-hOx" id="Lyj-mE-prY"/>
                                             <outlet property="postImg" destination="SPG-GS-HZl" id="4WG-C3-vMa"/>
                                             <outlet property="profileImg" destination="ELC-o6-2fV" id="cfr-Hi-QVi"/>
@@ -380,7 +380,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnx-dk-HdZ" userLabel="Bottom, add pic, comment, add btn">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMU-mq-nOw" userLabel="postBtn">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMU-mq-nOw" userLabel="postBtn">
                                         <rect key="frame" x="363" y="7" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="9ue-3l-d6x"/>
