@@ -127,8 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				231C9208205925F1004154FE /* SignInVC.swift */,
-				2363F45820613CF500CEEC22 /* FeedVC.swift */,
 				23A0258C207779DD001873D3 /* AddProfileImgVC.swift */,
+				2363F45820613CF500CEEC22 /* FeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

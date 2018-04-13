@@ -14,7 +14,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var addImage: UIImageView!
-    @IBOutlet weak var addProfileImage: UIImageView!
     @IBOutlet weak var captionField: UITextField!
     
     var posts = [Post]()
@@ -30,8 +29,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         tableVIew.delegate = self
         tableVIew.dataSource = self
         
-        
-        
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true // thats nice!
         imagePicker.delegate = self
@@ -41,7 +38,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                 // this will observe for any changes in database !
         DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
             print(snapshot.value as Any) // only for checking
-            self.posts = []
+            self.posts = [] // // clear the old array
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     print("Snap: \(snap)")
@@ -102,7 +99,26 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     
     
+    func postToFirebase(imageUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionField.text as AnyObject,
+            "imageUrl": imageUrl as AnyObject,
+            "uploaded_by": KeychainWrapper.standard.string(forKey: KEY_UID)! as AnyObject,
+            "likes": 0 as AnyObject
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        addImage.image = UIImage(named: "addImage")
+        
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
    
     
     
@@ -144,27 +160,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
     
-    func postToFirebase(imageUrl: String) {
-        let post: Dictionary<String, AnyObject> = [
-            "caption": captionField.text as AnyObject,
-            "imageUrl": imageUrl as AnyObject,
-            "likes": 0 as AnyObject
-        ]
-        
-        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
-        firebasePost.setValue(post)
-        
-        captionField.text = ""
-        imageSelected = false
-        addImage.image = UIImage(named: "addImage")
-        
-    }
-    
-    
     @IBAction func addImagePressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
-    
+
     
                             // to sign out i need to remove id from Keychain and sign out from Firebase
     @IBAction func signOutBtn(_ sender: Any) {

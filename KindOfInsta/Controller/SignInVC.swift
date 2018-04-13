@@ -25,7 +25,7 @@ class SignInVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {   // that's better place for Segue
         if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
-            performSegue(withIdentifier: "goToFeed", sender: nil)   // If there is uid in keychain it will performe Segue to the FeedVC
+            performSegue(withIdentifier: "goToCreateProfile", sender: nil)   // If there is uid in keychain it will performe Segue
         }
     }
     
@@ -93,11 +93,24 @@ class SignInVC: UIViewController {
     
     func completeSignIN(id: String, userData: Dictionary<String, String>) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
-        print("Jakub: Data saved to keychain \(keychainResult)")
-        performSegue(withIdentifier: "goToFeed", sender: nil) // it will performe Segue to FeedVC if credentials
+//        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+//        print("Jakub: Data saved to keychain \(keychainResult)")
+        performSegue(withIdentifier: "goToCreateProfile", sender: id) // it will performe Segue to FeedVC if credentials ----changed sender from nil to id
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let identifier = segue.identifier {
+            if identifier == "goToCreateProfile" && sender != nil {
+                let destinationVC = segue.destination as? AddProfileImgVC
+                destinationVC?.profileId = sender as! String
+            }
+        }
+    }
     
 }
 

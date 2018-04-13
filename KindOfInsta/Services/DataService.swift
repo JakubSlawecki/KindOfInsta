@@ -62,14 +62,6 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)  // if user it's not there, firebase will automaticly create one in database!
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 

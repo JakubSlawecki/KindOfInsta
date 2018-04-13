@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class PostCell: UITableViewCell {
 
@@ -17,9 +18,15 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     var post: Post!
     var likesRef: DatabaseReference!
+    var uploaderRef: DatabaseReference!
+    
+    let currentUserProfileId = KeychainWrapper.standard.string(forKey: KEY_UID)
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +43,8 @@ class PostCell: UITableViewCell {
         likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes) likes"
+        
+        uploaderRef = DataService.ds.REF_USERS.child(self.post.uploadedByUser)
         
         if img != nil {
             self.postImg.image = img
@@ -57,6 +66,12 @@ class PostCell: UITableViewCell {
             })
         }
         
+        if post.uploadedByUser == currentUserProfileId {
+            deleteBtn.isHidden = false
+        } else {
+            deleteBtn.isHidden = true
+        }
+        
         likesRef.observeSingleEvent(of: .value) { (snapshot) in
             if let _ = snapshot.value as? NSNull {
                 self.likeImg.image = UIImage(named: "heartIcon")
@@ -65,27 +80,29 @@ class PostCell: UITableViewCell {
             }
         }
         
-        
-        
-//        if userImg != nil {
-//            self.profileImg.image = userImg
-//        } else {
-//            let ref = Storage.storage().reference(forURL: post.profileImageUrl)
-//            ref.getData(maxSize: 4 * 5000 * 5000, completion: { (data, error) in
-//                if error != nil {
-//                    print("Jakub: Ubable to download ProfileImage from Firebase Storage")
-//                } else {
-//                    print("Jakub: Profile Image downloaded from Firebase Storage")
-//                    if let profileImgData = data {
-//                        if let profileImg = UIImage(data: profileImgData) {
-//                            self.profileImg.image = profileImg
-//                            FeedVC.profileImageCache.setObject(profileImg, forKey: post.profileImageUrl as NSString)
-//                        }
-//                    }
-//                    
-//                }
-//            })
-//        }
+        uploaderRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            if let uploaderImg = snapshot.childSnapshot(forPath: "image_url").value as? String {
+                let storageRef = Storage.storage().reference(forURL: uploaderImg)
+                storageRef.getData(maxSize: 10 * 1024 * 1024, completion: {(data, error) in
+                    
+                    if error != nil {
+                        print("Jakub: Unable to download profile image from firebase: \(String(describing: error))")
+                    } else {
+                        print("Jakub: Profile image downloaded from firebase")
+                        
+                        if let profileImgData = data {
+                            if let actualImg = UIImage(data: profileImgData) {
+                                self.profileImg.image = actualImg
+                            }
+                        }
+                    }
+                })
+            }
+            
+            if let uploaderName = snapshot.childSnapshot(forPath: "display_name").value as? String {
+                self.usernameLbl.text = uploaderName
+            }
+        })
     }
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
@@ -102,6 +119,15 @@ class PostCell: UITableViewCell {
             }
         }
     }
+    
+    @IBAction func deleteBtnPressed(_ sender: Any) {
+        if !deleteBtn.isHidden {
+            DataService.ds.REF_POSTS.child(post.postKey).removeValue()
+        } else {
+            print("Jakub: You can't delete others posts")
+        }
+    }
+    
     
 }
 
