@@ -15,6 +15,7 @@ class Post {
     private var _profileImageUrl: String!
     private var _likes: Int!
     private var _postKey: String!
+    private var _uploadedByUser: String!
     private var _postRef: DatabaseReference!
     
     var caption: String {
@@ -25,10 +26,6 @@ class Post {
         return _imageUrl
     }
     
-//    var profileImageUrl: String {
-//        return _profileImageUrl
-//    }
-    
     var likes: Int {
         return _likes
     }
@@ -37,13 +34,15 @@ class Post {
         return _postKey
     }
     
+    var uploadedByUser: String {
+        return _uploadedByUser
+    }
     
     
-    init(caption: String, imageUrl: String, profileImageUrl: String, likes: Int) {
+    init(caption: String, imageUrl: String, likes: Int) {
         self._caption = caption
         self._imageUrl = imageUrl
         self._likes = likes
-        self._profileImageUrl = profileImageUrl
     }
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) { // this ll convert firebase data into something that I can use ;)
@@ -57,8 +56,8 @@ class Post {
             self._imageUrl = imageUrl
         }
         
-        if let profileImageUrl = postData["profileImageUrl"] as? String {
-            self._profileImageUrl = profileImageUrl
+        if let uploadedByUser = postData["uploaded_by"] as? String {
+            self._uploadedByUser = uploadedByUser
         }
         
         if let likes = postData["likes"] as? Int {

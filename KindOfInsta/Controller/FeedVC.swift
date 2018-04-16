@@ -14,7 +14,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var addImage: UIImageView!
-    @IBOutlet weak var addProfileImage: UIImageView!
     @IBOutlet weak var captionField: UITextField!
     
     var posts = [Post]()
@@ -57,6 +56,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -73,9 +73,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         if let cell = tableVIew.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-//            let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString)
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) { //, let userImg = FeedVC.profileImageCache.object(forKey: post.profileImageUrl as NSString) {
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
                 cell.configureCell(post: post, img: img)//, userImg: userImg)
                 return cell
             } else {
@@ -100,9 +99,26 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    func postToFirebase(imageUrl: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionField.text as AnyObject,
+            "imageUrl": imageUrl as AnyObject,
+            "uploaded_by": KeychainWrapper.standard.string(forKey: KEY_UID)! as AnyObject,
+            "likes": 0 as AnyObject
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        addImage.image = UIImage(named: "addImage")
+        
+    }
     
-    
-    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
    
     
     
@@ -116,10 +132,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             print("Jakub: An image must be selected")
             return
         }
-//        guard let profileImg = addProfileImage.image else {
-//            print("Jakub: An Profile image must be selected")
-//            return
-//        }
         
         if let imgData = UIImageJPEGRepresentation(img, 0.2) {
             
@@ -129,6 +141,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
+            
+            dismissKeyboard()
             
             DataService.ds.REF_POST_IMAGES.child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
                 if error != nil {
@@ -144,21 +158,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
     
-    func postToFirebase(imageUrl: String) {
-        let post: Dictionary<String, AnyObject> = [
-            "caption": captionField.text as AnyObject,
-            "imageUrl": imageUrl as AnyObject,
-            "likes": 0 as AnyObject
-        ]
-        
-        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
-        firebasePost.setValue(post)
-        
-        captionField.text = ""
-        imageSelected = false
-        addImage.image = UIImage(named: "addImage")
-        
-    }
+    
     
     
     @IBAction func addImagePressed(_ sender: Any) {
