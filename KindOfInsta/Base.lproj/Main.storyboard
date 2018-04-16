@@ -447,7 +447,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfe-y5-l2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="fZl-8K-vUj"/>
                 <tapGestureRecognizer id="449-sS-ss9">
                     <connections>
                         <action selector="addImagePressed:" destination="EzX-cu-jyy" id="tVh-vU-jbZ"/>
