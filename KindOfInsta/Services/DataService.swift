@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import SwiftKeychainWrapper
 
-let DB_BASE = Database.database().reference()  // that is the top of my Databese in URL
+let DB_BASE = Database.database().reference()  // this is the "highest position" in my database in URL
 let STORAGE_BASE = Storage.storage().reference()
 
 class DataService {
@@ -18,7 +18,7 @@ class DataService {
     static let ds = DataService()
     
     // Databasese refernces
-    private var _REF_BASE = DB_BASE // I will not probably need that but we'll see
+    private var _REF_BASE = DB_BASE // I probably will not need it, but who knows
     private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("users")
     
@@ -41,8 +41,9 @@ class DataService {
     }
     
     var REF_USER_CURRENT: DatabaseReference {
+        
         let uid = KeychainWrapper.standard.string(forKey: KEY_UID)
-        let user = REF_USERS.child(uid!) // will need to change that force unwraping soon!
+        let user = REF_USERS.child(uid!) // I will have to change this force unpacking soon
         return user
     }
     
@@ -56,18 +57,11 @@ class DataService {
     
     
     
-    // user from authetnication is seperate thing that user from firebase database! That's why I'll call them DBUser etc
+     // the user from the aunteification it's different from another user from the firebase database! That's why I'll call them DBUser etc
     
-    func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) { // uid is our user and userData ll be our "provider"
-        REF_USERS.child(uid).updateChildValues(userData)  // if user it's not there, firebase will automaticly create one in database!
+    func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) { // uid will be our user and userData will be the "provider"
+        REF_USERS.child(uid).updateChildValues(userData)  // if the user is not in the database, firebase will create it automatically!
     }
-    
-    
-    
-    
-    
-    
-    
     
     
 }

@@ -10,6 +10,5 @@ import UIKit
 
 class FancyView: UIView {
 
-    // no need for that anymore
-
+    // I do not need it, ...probably
 }

@@ -9,13 +9,10 @@
 import UIKit
 
 class FancyBtn: UIButton {
-
-                                            //this code will round the corners of the button if I want to
+                                                // this will provide round edges for buttons
     override func awakeFromNib() {
+       
         super.awakeFromNib()
-        
-        
         layer.cornerRadius = 2.0
     }
-
 }
