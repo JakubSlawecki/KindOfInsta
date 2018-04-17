@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+                                // all this is wrong, I have to invent something else :D
+
 class AddProfileImgVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var addProfileImgField: UIImageView!

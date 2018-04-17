@@ -46,22 +46,23 @@ class Post {
         self._profileImageUrl = profileImageUrl
     }
     
-    init(postKey: String, postData: Dictionary<String, AnyObject>) { // this ll convert firebase data into something that I can use ;)
-        self._postKey = postKey
+    init(postKey: String, postData: Dictionary<String, AnyObject>) { // it will convert firebase data in something that I can use
         
+        self._postKey = postKey
         if let caption = postData["caption"] as? String {
+            
             self._caption = caption
         }
-        
         if let imageUrl = postData["imageUrl"] as? String {
+            
             self._imageUrl = imageUrl
         }
-        
         if let profileImageUrl = postData["profileImageUrl"] as? String {
+            
             self._profileImageUrl = profileImageUrl
         }
-        
         if let likes = postData["likes"] as? Int {
+            
             self._likes = likes
         }
         
@@ -74,10 +75,12 @@ class Post {
         if addLike {
             _likes = _likes + 1
         } else {
+            
             _likes = _likes - 1
         }
     _postRef.child("likes").setValue(_likes)
     }
+    
 }
 
 
